@@ -2,6 +2,7 @@
 
 import React from 'react';
 import CustomerList from './components/CustomerList';
+import CustomerForm from './components/CustomerForm';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import myTheme from './theme'
@@ -13,9 +14,10 @@ function App() {
             <Navbar />
             <Routes>
             <Route path="/customers" element={<CustomerList />} />
+            <Route path="/customers/new" element={<CustomerForm />} />
+            <Route path="/customers/edit/:id" element={<CustomerForm />} />
         {/* Aggiungi altre rotte se necessario */}
       </Routes>
-            <CustomerList />
         </ThemeProvider>
     );
 }

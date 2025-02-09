@@ -75,7 +75,7 @@ const Navbar = () => {
 
                 {/* Logo o titolo dell'app */}
                 <Typography variant="h6" sx={{ flexGrow: 1, color: '#FFFFFF' }}>
-                    MyApp
+                    Aros
                 </Typography>
 
                 {/* Pulsanti di navigazione per desktop */}

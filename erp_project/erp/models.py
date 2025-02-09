@@ -11,7 +11,7 @@ class State(models.Model):
 class Invoice(models.Model):
     id_invoice = models.AutoField(primary_key=True)
     date = models.DateField()
-    fk_customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='invoices')
+    # fk_customer = models.ForeignKey(Customer, on_delete=models.PROTECT, related_name='invoices')
     created = models.DateTimeField(auto_now_add=True)
     invoice_number = models.CharField(max_length=45, unique=True)
     fk_state = models.ForeignKey(State, on_delete=models.PROTECT)
