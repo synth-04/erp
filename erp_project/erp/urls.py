@@ -2,14 +2,13 @@ from django.urls import path, include
 from . import views
 from rest_framework.routers import DefaultRouter
 from .views import (
-    CustomerViewSet, StateViewSet, InvoiceViewSet, ProductCategoryViewSet, 
+    StateViewSet, InvoiceViewSet, ProductCategoryViewSet, 
     ProductViewSet, AccountTypeViewSet, AccountViewSet, InvoicePViewSet, 
     PaymentViewSet, JournalEntryViewSet, JournalEntryLineViewSet
 )
 
 # Inizializza il router
 router = DefaultRouter()
-router.register(r'customers', CustomerViewSet)
 router.register(r'states', StateViewSet)
 router.register(r'invoices', InvoiceViewSet)
 router.register(r'product-categories', ProductCategoryViewSet)

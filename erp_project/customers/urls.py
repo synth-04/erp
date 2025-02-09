@@ -1,13 +1,14 @@
-from django.urls import path, include
-from . import views
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 from .views import CustomerViewSet
+from rest_framework.routers import DefaultRouter
 
+app_name = 'customers'
 
 router = DefaultRouter()
-router.register(r'customers', CustomerViewSet)
+router.register(r'', CustomerViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path('', views.index, name='index'),
+    # Eventuali ulteriori pattern se necessari
 ]
+
+urlpatterns += router.urls
