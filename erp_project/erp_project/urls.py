@@ -21,5 +21,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('erp.urls')),
+    path('api/customers/', include('customers.urls', namespace='customers')),
+    path('api/orders/', include('orders.urls', namespace='orders')),
+    path('api/inventory/', include('inventory.urls', namespace='inventory')),
     path('',TemplateView.as_view(template_name='index.html'))
 ]

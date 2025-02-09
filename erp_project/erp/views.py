@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import (
-    Customer, State, Invoice, ProductCategory, Product, 
+    State, Invoice, ProductCategory, Product, 
     AccountType, Account, InvoiceP, Payment, JournalEntry, JournalEntryLine
 )
 from .serializers import (
-    CustomerSerializer, StateSerializer, InvoiceSerializer, ProductCategorySerializer, 
+    StateSerializer, InvoiceSerializer, ProductCategorySerializer, 
     ProductSerializer, AccountTypeSerializer, AccountSerializer, InvoicePSerializer, 
     PaymentSerializer, JournalEntrySerializer, JournalEntryLineSerializer
 )
@@ -14,11 +14,6 @@ from .serializers import (
 
 def index(request):
     return render(request, 'frontend/index.html')
-
-# ViewSet per Customer
-class CustomerViewSet(viewsets.ModelViewSet):
-    queryset = Customer.objects.all()
-    serializer_class = CustomerSerializer
 
 # ViewSet per State
 class StateViewSet(viewsets.ModelViewSet):
