@@ -20,11 +20,11 @@ const CustomerList = () => {
     return (
         <div>
             <h2>Elenco Clienti</h2>
-            <ul>
+            <ol>
                 {customers.map(customer => (
                     <li key={customer.id}>{customer.name} - {customer.email}</li>
                 ))}
-            </ul>
+            </ol>
         </div>
     );
 };

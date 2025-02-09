@@ -12,6 +12,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
+
+const navItems = [
+    { text: 'Home', path: '/' },
+    { text: 'Customers', path: '/customers' },
+    { text: 'Orders', path: '/orders' },
+    { text: 'Inventory', path: '/inventory' },
+    { text: 'Account', path: '/account' },
+];
 
 const Navbar = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -27,9 +36,14 @@ const Navbar = () => {
             sx={{ width: 250 }}
         >
             <List>
-                {['Home', 'Features', 'Pricing', 'Contact'].map((text) => (
-                    <ListItem button key={text}>
-                        <ListItemText primary={text} />
+                {navItems.map((item) => (
+                    <ListItem 
+                        button 
+                        key={item.text}
+                        component={Link}
+                        to={item.path}
+                    >
+                        <ListItemText primary={item.text} />
                     </ListItem>
                 ))}
             </List>
@@ -50,7 +64,7 @@ const Navbar = () => {
                     <MenuIcon />
                 </IconButton>
 
-                {/* Drawer per i dispositivi mobili */}
+                {/* Drawer per dispositivi mobili */}
                 <Drawer
                     anchor="left"
                     open={drawerOpen}
@@ -66,9 +80,11 @@ const Navbar = () => {
 
                 {/* Pulsanti di navigazione per desktop */}
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 2 }}>
-                    {['Home', 'Features', 'Pricing', 'Contact'].map((text) => (
+                    {navItems.map((item) => (
                         <Button
-                            key={text}
+                            key={item.text}
+                            component={Link}
+                            to={item.path}
                             color="inherit"
                             sx={{
                                 color: '#FFFFFF',
@@ -92,7 +108,7 @@ const Navbar = () => {
                                 },
                             }}
                         >
-                            {text}
+                            {item.text}
                         </Button>
                     ))}
                 </Box>
@@ -102,5 +118,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
