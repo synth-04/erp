@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'marketing',
     'erp',
     'customers',
+    'accounts',
     'orders',
     'inventory',
     'rest_framework',

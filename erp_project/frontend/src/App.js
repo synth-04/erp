@@ -6,6 +6,8 @@ import CustomerForm from './components/CustomerForm';
 import { Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Logout from './components/Logout';
+import Register from './components/Register';
+import ProtectedRoute from './components/ProtectedRoute';
 import { ThemeProvider } from '@mui/material/styles';
 import myTheme from './theme'
 import Navbar from './components/Navbar';
@@ -17,7 +19,8 @@ function App() {
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/logout" element={<Logout />} />
-                
+                <Route path="/register" element={<Register />} />
+
                 {/* Rotte protette */}
                 <Route path="/customers" element={
                     <ProtectedRoute>
