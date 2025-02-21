@@ -1,5 +1,6 @@
 from django.db import models
 from customers.models import Customer
+from inventory.models import Product, ProductCategory
 
 
 # Modello State
@@ -16,20 +17,6 @@ class Invoice(models.Model):
     invoice_number = models.CharField(max_length=45, unique=True)
     fk_state = models.ForeignKey(State, on_delete=models.PROTECT)
 
-# Modello ProductCategory
-class ProductCategory(models.Model):
-    id_cat = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255, unique=True)
-
-# Modello Product
-class Product(models.Model):
-    id_product = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45, blank=True, null=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    sales_tax = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    pur_tax = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    fk_cat = models.ForeignKey(ProductCategory, on_delete=models.PROTECT)
-
 # Modello AccountType
 class AccountType(models.Model):
     id_account_type = models.AutoField(primary_key=True)
@@ -44,7 +31,7 @@ class Account(models.Model):
 # Modello InvoiceP (Dettagli della Fattura)
 class InvoiceP(models.Model):
     id_invoice_p = models.AutoField(primary_key=True)
-    fk_prod = models.ForeignKey(Product, on_delete=models.PROTECT)
+    # fk_prod = models.ForeignKey(Product, on_delete=models.PROTECT)
     quantity = models.PositiveIntegerField()
     fk_invoice = models.ForeignKey(Invoice, on_delete=models.PROTECT, related_name='invoice_items', blank=True, null=True)
     fk_account = models.ForeignKey(Account, on_delete=models.PROTECT)
