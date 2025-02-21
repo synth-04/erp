@@ -45,6 +45,10 @@ function App() {
                         <CustomerForm />
                     </ProtectedRoute>
                 } />
+
+                {/* Per ogni altra rotta non definita, reindirizza a "/" */}
+                <Route path="*" element={<Navigate to="/" />} />
+                
                 {/* Aggiungi altre rotte se necessario */}
             </Routes>
         </ThemeProvider>
